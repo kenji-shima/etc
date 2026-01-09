@@ -18,14 +18,145 @@
 }
 
 </style>
-            
+
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <!-- Mapbox GL JS -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet' />
 <style>
+            /* Modern base styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
             body {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
+                font-size: 16px;
+                line-height: 1.7;
+                color: #333;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                padding: 2rem;
+            }
+
+            /* Container wrapper for content */
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                z-index: -1;
+            }
+
+            .content-wrapper {
+                max-width: 900px;
+                margin: 0 auto;
+                background: white;
+                padding: 3rem;
+                border-radius: 12px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Typography improvements */
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: #2d3748;
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+                border-bottom: 3px solid #667eea;
+                animation: fadeInDown 0.5s ease-out;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                font-weight: 600;
+                color: #4a5568;
+                margin-top: 2.5rem;
+                margin-bottom: 1.2rem;
+                padding-left: 1rem;
+                border-left: 4px solid #764ba2;
+                animation: fadeInLeft 0.6s ease-out;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: #4a5568;
+                margin-top: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                margin-bottom: 1.2rem;
+                color: #4a5568;
+                animation: fadeIn 0.7s ease-out;
+            }
+
+            ul {
+                margin-left: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            ul li {
+                margin-bottom: 0.5rem;
+                color: #4a5568;
+                position: relative;
+                padding-left: 0.5rem;
+            }
+
+            ul li::marker {
+                color: #667eea;
+            }
+
+            strong {
+                color: #2d3748;
+                font-weight: 600;
+            }
+
+            hr {
+                border: none;
+                height: 2px;
+                background: linear-gradient(to right, #667eea, #764ba2);
+                margin: 2rem 0;
+            }
+
+            /* Animations */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes fadeInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeInLeft {
+                from {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
             }
         </style>
         <style>
@@ -144,11 +275,486 @@
   color: #ffffff;
 }
 
+.event {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #ffffff;
+  font-weight: 600;
+  position: relative;
+}
+
+.event-text {
+  font-size: 10px;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Enhanced table styling */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 4px;
+    margin: 1.5rem 0;
+    background: #f7fafc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+table thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+table thead tr th {
+    padding: 15px 10px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+table tbody tr td {
+    padding: 12px 10px;
+    text-align: center;
+    background: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+table tbody tr td:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+/* Calendar day styling */
+table tbody tr td strong {
+    display: block;
+    padding: 8px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Event cells in calendar */
+table tbody tr td.event {
+    padding: 8px 5px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+table tbody tr td strong:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(72, 187, 120, 0.4);
+}
+
+/* Holiday styling improvements */
+table tbody tr td.holiday {
+    background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+table tbody tr td.pto {
+    background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%);
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+/* Blockquote styling improvements */
+blockquote {
+    background: linear-gradient(to right, #f7fafc 0%, #edf2f7 100%);
+    border-left: 4px solid #667eea;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    animation: fadeIn 0.9s ease-out;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+blockquote li {
+    margin: 0.5rem 0;
+    list-style-position: inside;
+}
+
+blockquote code {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0 4px;
+}
+
+blockquote code.holiday {
+    background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+    color: white;
+}
+
+blockquote code.pto {
+    background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%);
+    color: white;
+}
+
+/* Animation for table fade in */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .content-wrapper {
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        padding-bottom: 0.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        margin-top: 1.8rem;
+        padding-left: 0.8rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    ul {
+        margin-left: 1.2rem;
+    }
+
+    table {
+        font-size: 0.85rem;
+        border-spacing: 2px;
+    }
+
+    table thead tr th {
+        padding: 10px 5px;
+        font-size: 0.8rem;
+    }
+
+    table tbody tr td {
+        padding: 8px 5px;
+    }
+
+    table tbody tr td strong {
+        padding: 5px;
+        font-size: 0.85rem;
+    }
+
+    blockquote {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    .content-wrapper {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        border-left-width: 3px;
+    }
+
+    table {
+        font-size: 0.75rem;
+    }
+
+    table thead tr th {
+        padding: 8px 3px;
+        font-size: 0.7rem;
+        letter-spacing: 0;
+    }
+
+    table tbody tr td {
+        padding: 6px 3px;
+    }
+
+    table tbody tr td strong {
+        padding: 3px;
+        font-size: 0.75rem;
+    }
+
+    table tbody tr td:hover {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .content-wrapper {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    h1, h2 {
+        page-break-after: avoid;
+    }
+
+    table {
+        page-break-inside: avoid;
+    }
+
+    .holiday, .pto {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Selection styling */
+::selection {
+    background: #667eea;
+    color: white;
+}
+
+::-moz-selection {
+    background: #667eea;
+    color: white;
+}
+
+/* Mapbox Map Container */
+#map {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e2e8f0;
+    animation: fadeInUp 0.8s ease-out;
+    position: relative;
+}
+
+.map-section {
+    margin: 2.5rem 0;
+}
+
+.map-section h2 {
+    margin-bottom: 1rem;
+}
+
+/* Map info overlay */
+.map-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 50%;
+    max-width: 320px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-radius: 6px;
+    padding: 8px 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    animation: slideDown 0.5s ease-out;
+    font-size: 11px;
+}
+
+.city-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.city-marker {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 9px;
+}
+
+.tokyo-marker {
+    background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+}
+
+.cebu-marker {
+    background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%);
+}
+
+.city-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.city-name {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 11px;
+}
+
+.city-timezone {
+    color: #4a5568;
+    font-size: 10px;
+}
+
+.time-difference {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 10px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.map-info {
+    background: linear-gradient(to right, #f7fafc 0%, #edf2f7 100%);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border-left: 4px solid #667eea;
+}
+
+.map-info p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* Mapbox popup styling */
+.mapboxgl-popup-content {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mapboxgl-popup-content h3 {
+    margin: 0 0 8px 0;
+    color: #2d3748;
+    font-size: 1.1rem;
+}
+
+.mapboxgl-popup-content p {
+    margin: 4px 0;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+/* Responsive map sizing */
+@media screen and (max-width: 768px) {
+    #map {
+        height: 300px;
+    }
+
+    .map-overlay {
+        width: 60%;
+        max-width: 280px;
+        padding: 6px 10px;
+        gap: 8px;
+    }
+
+    .city-info {
+        gap: 4px;
+    }
+
+    .city-name {
+        font-size: 10px;
+    }
+
+    .city-timezone {
+        font-size: 9px;
+    }
+
+    .time-difference {
+        font-size: 9px;
+        padding: 3px 6px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #map {
+        height: 250px;
+    }
+
+    .map-overlay {
+        width: 70%;
+        max-width: 250px;
+    }
+
+    .city-marker {
+        width: 18px;
+        height: 18px;
+        font-size: 8px;
+    }
+}
+
 </style>
         
         </head>
         <body class="vscode-body vscode-light">
-            <h1 id="remote-work-plan-proposal-kenji-shima">Remote Work Plan Proposal (Kenji Shima) - Cebu</h1>
+            <div class="content-wrapper">
+            <h1 id="remote-work-plan-proposal-kenji-shima">Remote Work Plan (Kenji Shima) - Cebu</h1>
 <h2 id="overview">Overview</h2>
 <p>As my geographical location will not impact my performance as long as I stay in a timezone close to Tokyo, I plan to work remotely from Cebu, Philippines, for approximately two weeks.</p>
 <h2 id="remote-work-details">Remote Work Details</h2>
@@ -170,6 +776,31 @@
 <li><strong>Cebu (PST):</strong> UTC+8</li>
 </ul>
 <p>By maintaining my working hours based on JST, I will ensure uninterrupted communication with our Tokyo-based clients and colleagues. This alignment allows for real-time collaboration without significant adjustments to meeting schedules or client interactions.</p>
+<div class="map-section">
+<div id="map">
+    <div class="map-overlay">
+        <div class="city-info">
+            <div class="city-marker tokyo-marker">TYO</div>
+            <div class="city-details">
+                <span class="city-name">Tokyo, Japan</span>
+                <span class="city-timezone">UTC+9 (JST)</span>
+            </div>
+        </div>
+
+        <div class="time-difference">
+            1hr diff
+        </div>
+
+        <div class="city-info">
+            <div class="city-marker cebu-marker">CEB</div>
+            <div class="city-details">
+                <span class="city-name">Cebu, Philippines</span>
+                <span class="city-timezone">UTC+8 (PST)</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 <h2 id="communication-plan">Communication Plan</h2>
 <ul>
 <li><strong>Availability:</strong> 9:00 AM – 6:00 PM JST</li>
@@ -199,8 +830,8 @@
 <td>2</td>
 <td>3</td>
 <td>4</td>
-<td>5</td>
-<td>6</td>
+<td class="event">5<span class="event-text">Dennou Kotsu</span></td>
+<td class="event">6<span class="event-text">Dennou Kotsu</span></td>
 <td class="holiday">7</td>
 </tr>
 <tr>
@@ -225,18 +856,26 @@
 <td class="holiday">22</td>
 <td class="holiday">23</td>
 <td><strong>24[R]</strong></td>
-<td>25</td>
-<td>26</td>
+<td class="event">25<span class="event-text">Exec RT</span></td>
+<td class="event">26<span class="event-text">CAB</span></td>
 <td>27</td>
 <td class="holiday">28</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p><strong>Note:</strong> 
+<p><strong>Note:</strong>
   <li>Days marked with <code>[R]</code> indicate remote work from Cebu.</li>
+  <li>Days colored with <code class="event">　</code> indicate important meetings/events.</li>
   <li>Days colored with <code class="pto">　</code> indicate planned time off.</li>
   <li>Days colored with <code class="holiday">　</code> indicate public holidays (Feb 11: National Foundation Day, Feb 23: Emperor's Birthday) or weekends.</li>
+  <li><strong>Key Events:</strong>
+    <ul>
+      <li>Feb 5-6: Dennou Kotsu Onsite Meeting (Tokyo)</li>
+      <li>Feb 25: Executive RoundTable (After return from Cebu)</li>
+      <li>Feb 26: CAB Meeting</li>
+    </ul>
+  </li>
 </p>
 </blockquote>
 <h2 id="justification">Justification</h2>
@@ -250,6 +889,273 @@
 <p>Working remotely from Cebu from February 9, 2026, to February 24, 2026, will enable me to maintain, if not enhance, my performance and support for our clients and team. I am committed to ensuring a seamless transition and will remain fully accessible during my remote work period.</p>
 <p>I appreciate your consideration of this proposal and am open to discussing any concerns or adjustments to ensure continued success in our projects and client relationships.</p>
 <hr>
+</div>
+
+<script>
+    // Initialize Mapbox
+    mapboxgl.accessToken = 'pk.eyJ1Ijoia2Vuamktc2hpbWEiLCJhIjoiY21pNnFpYjVwMDFnNzJrcjJxa2hheWh3byJ9.A3Y0qPkK-Oh5viSiBe619g';
+
+    // Tokyo and Cebu coordinates
+    const tokyoCoords = [139.6503, 35.6762];
+    const cebuCoords = [123.8854, 10.3157];
+
+    // Calculate center point between Tokyo and Cebu
+    const centerLng = (tokyoCoords[0] + cebuCoords[0]) / 2;
+    const centerLat = (tokyoCoords[1] + cebuCoords[1]) / 2;
+
+    // Create the map with the desired initial view
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [centerLng, centerLat],
+        zoom: 2.5, // Show broader Asia-Pacific region
+        pitch: 0,
+        bearing: 0,
+        antialias: true
+    });
+
+    // Add navigation controls
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+    // Add fullscreen control
+    map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
+
+    // Create Tokyo marker (red)
+    const tokyoEl = document.createElement('div');
+    tokyoEl.style.width = '50px';
+    tokyoEl.style.height = '50px';
+    tokyoEl.style.borderRadius = '50%';
+    tokyoEl.style.background = 'linear-gradient(135deg, #fc8181 0%, #f56565 100%)';
+    tokyoEl.style.border = '3px solid white';
+    tokyoEl.style.boxShadow = '0 4px 12px rgba(239, 68, 68, 0.5)';
+    tokyoEl.style.cursor = 'pointer';
+    tokyoEl.style.display = 'flex';
+    tokyoEl.style.alignItems = 'center';
+    tokyoEl.style.justifyContent = 'center';
+    tokyoEl.style.color = 'white';
+    tokyoEl.style.fontWeight = 'bold';
+    tokyoEl.style.fontSize = '20px';
+    tokyoEl.innerHTML = 'TYO';
+
+    // Create Cebu marker (blue)
+    const cebuEl = document.createElement('div');
+    cebuEl.style.width = '50px';
+    cebuEl.style.height = '50px';
+    cebuEl.style.borderRadius = '50%';
+    cebuEl.style.background = 'linear-gradient(135deg, #63b3ed 0%, #4299e1 100%)';
+    cebuEl.style.border = '3px solid white';
+    cebuEl.style.boxShadow = '0 4px 12px rgba(59, 130, 246, 0.5)';
+    cebuEl.style.cursor = 'pointer';
+    cebuEl.style.display = 'flex';
+    cebuEl.style.alignItems = 'center';
+    cebuEl.style.justifyContent = 'center';
+    cebuEl.style.color = 'white';
+    cebuEl.style.fontWeight = 'bold';
+    cebuEl.style.fontSize = '20px';
+    cebuEl.innerHTML = 'CEB';
+
+    // Create Tokyo popup
+    const tokyoPopup = new mapboxgl.Popup({
+        offset: 25,
+        closeButton: false,
+        closeOnClick: false
+    })
+    .setHTML(`
+        <h3>🔴 Tokyo, Japan</h3>
+        <p><strong>Home Base</strong></p>
+        <p>Time Zone: <strong>UTC+9 (JST)</strong></p>
+        <p>Work Hours: 9:00 AM - 6:00 PM JST</p>
+    `);
+
+    // Create Cebu popup
+    const cebuPopup = new mapboxgl.Popup({
+        offset: 25,
+        closeButton: false,
+        closeOnClick: false
+    })
+    .setHTML(`
+        <h3>🔵 Cebu, Philippines</h3>
+        <p><strong>Remote Work Location</strong></p>
+        <p>Feb 9 - Feb 24, 2026</p>
+        <p>Time Zone: <strong>UTC+8 (PST)</strong></p>
+        <p>⏰ <strong>1 hour behind Tokyo</strong></p>
+        <p>Work Hours: 8:00 AM - 5:00 PM Local</p>
+    `);
+
+    // Add markers to map
+    const tokyoMarker = new mapboxgl.Marker(tokyoEl)
+        .setLngLat(tokyoCoords)
+        .setPopup(tokyoPopup)
+        .addTo(map);
+
+    const cebuMarker = new mapboxgl.Marker(cebuEl)
+        .setLngLat(cebuCoords)
+        .setPopup(cebuPopup)
+        .addTo(map);
+
+    // Show popup on hover for Tokyo
+    tokyoEl.addEventListener('mouseenter', () => tokyoMarker.togglePopup());
+    tokyoEl.addEventListener('mouseleave', () => tokyoMarker.togglePopup());
+
+    // Show popup on hover for Cebu
+    cebuEl.addEventListener('mouseenter', () => cebuMarker.togglePopup());
+    cebuEl.addEventListener('mouseleave', () => cebuMarker.togglePopup());
+
+    // Add 3D buildings layer when map loads
+    map.on('load', () => {
+        // Add a connecting line between Tokyo and Cebu
+        map.addSource('route', {
+            'type': 'geojson',
+            'data': {
+                'type': 'Feature',
+                'properties': {},
+                'geometry': {
+                    'type': 'LineString',
+                    'coordinates': [tokyoCoords, cebuCoords]
+                }
+            }
+        });
+
+        // Add the line layer
+        map.addLayer({
+            'id': 'route',
+            'type': 'line',
+            'source': 'route',
+            'layout': {
+                'line-join': 'round',
+                'line-cap': 'round'
+            },
+            'paint': {
+                'line-color': '#667eea',
+                'line-width': 3,
+                'line-opacity': 0.6,
+                'line-dasharray': [2, 2]
+            }
+        });
+
+        // Add time zone labels
+        map.addSource('labels', {
+            'type': 'geojson',
+            'data': {
+                'type': 'FeatureCollection',
+                'features': [
+                    {
+                        'type': 'Feature',
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': tokyoCoords
+                        },
+                        'properties': {
+                            'title': 'UTC+9',
+                            'icon': 'monument'
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': cebuCoords
+                        },
+                        'properties': {
+                            'title': 'UTC+8',
+                            'icon': 'monument'
+                        }
+                    }
+                ]
+            }
+        });
+
+        // Insert the layer beneath any symbol layer.
+        const layers = map.getStyle().layers;
+        const labelLayerId = layers.find(
+            (layer) => layer.type === 'symbol' && layer.layout['text-field']
+        ).id;
+
+        // Add 3D buildings
+        map.addLayer(
+            {
+                'id': '3d-buildings',
+                'source': 'composite',
+                'source-layer': 'building',
+                'filter': ['==', 'extrude', 'true'],
+                'type': 'fill-extrusion',
+                'minzoom': 15,
+                'paint': {
+                    'fill-extrusion-color': '#aaa',
+                    'fill-extrusion-height': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        15,
+                        0,
+                        15.05,
+                        ['get', 'height']
+                    ],
+                    'fill-extrusion-base': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        15,
+                        0,
+                        15.05,
+                        ['get', 'min_height']
+                    ],
+                    'fill-extrusion-opacity': 0.6
+                }
+            },
+            labelLayerId
+        );
+
+        // Add some atmospheric fog for better 3D effect
+        map.setFog({
+            'range': [-1, 2],
+            'color': 'white',
+            'horizon-blend': 0.3
+        });
+    });
+
+
+    // Double click to view both cities
+    map.on('dblclick', (e) => {
+        e.preventDefault();
+
+        // Calculate center point between Tokyo and Cebu
+        const centerLng = (tokyoCoords[0] + cebuCoords[0]) / 2;
+        const centerLat = (tokyoCoords[1] + cebuCoords[1]) / 2;
+
+        // Fly to view showing both cities with regional context
+        map.flyTo({
+            center: [centerLng, centerLat],
+            zoom: 1, // Fixed zoom level for regional view
+            pitch: 0,
+            bearing: 0,
+            duration: 2000,
+            essential: true
+        });
+    });
+
+    // Add animation to pulse the connection line
+    let step = 0;
+    function animateLine() {
+        step = (step + 1) % 100;
+        const dashArraySequence = [
+            [0, 4, 3],
+            [1, 4, 2],
+            [2, 4, 1],
+            [3, 4, 0],
+            [4, 3, 0],
+            [4, 2, 1],
+            [4, 1, 2],
+            [4, 0, 3]
+        ];
+        const dashArrayIndex = Math.floor((step / 100) * dashArraySequence.length);
+        if (map.getLayer('route')) {
+            map.setPaintProperty('route', 'line-dasharray', dashArraySequence[dashArrayIndex]);
+        }
+        requestAnimationFrame(animateLine);
+    }
+    animateLine();
+</script>
 
 </body>
 </html>
