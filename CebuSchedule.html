@@ -954,52 +954,15 @@ a:focus, button:focus, input:focus, textarea:focus {
     cebuEl.style.fontSize = '20px';
     cebuEl.innerHTML = 'CEB';
 
-    // Create Tokyo popup
-    const tokyoPopup = new mapboxgl.Popup({
-        offset: 25,
-        closeButton: false,
-        closeOnClick: false
-    })
-    .setHTML(`
-        <h3>🔴 Tokyo, Japan</h3>
-        <p><strong>Home Base</strong></p>
-        <p>Time Zone: <strong>UTC+9 (JST)</strong></p>
-        <p>Work Hours: 9:00 AM - 6:00 PM JST</p>
-    `);
-
-    // Create Cebu popup
-    const cebuPopup = new mapboxgl.Popup({
-        offset: 25,
-        closeButton: false,
-        closeOnClick: false
-    })
-    .setHTML(`
-        <h3>🔵 Cebu, Philippines</h3>
-        <p><strong>Remote Work Location</strong></p>
-        <p>Feb 9 - Feb 24, 2026</p>
-        <p>Time Zone: <strong>UTC+8 (PST)</strong></p>
-        <p>⏰ <strong>1 hour behind Tokyo</strong></p>
-        <p>Work Hours: 8:00 AM - 5:00 PM Local</p>
-    `);
-
     // Add markers to map
     const tokyoMarker = new mapboxgl.Marker(tokyoEl)
         .setLngLat(tokyoCoords)
-        .setPopup(tokyoPopup)
         .addTo(map);
 
     const cebuMarker = new mapboxgl.Marker(cebuEl)
         .setLngLat(cebuCoords)
-        .setPopup(cebuPopup)
         .addTo(map);
 
-    // Show popup on hover for Tokyo
-    tokyoEl.addEventListener('mouseenter', () => tokyoMarker.togglePopup());
-    tokyoEl.addEventListener('mouseleave', () => tokyoMarker.togglePopup());
-
-    // Show popup on hover for Cebu
-    cebuEl.addEventListener('mouseenter', () => cebuMarker.togglePopup());
-    cebuEl.addEventListener('mouseleave', () => cebuMarker.togglePopup());
 
     // Add 3D buildings layer when map loads
     map.on('load', () => {
