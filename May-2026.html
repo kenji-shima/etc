@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Remote Work Plan Proposal (Kenji Shima) - May 2026</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <!-- Mapbox GL JS -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://kenji-shima.github.io/resource-files/utils.js"></script>
+<style>
+            /* Modern base styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 16px;
+                line-height: 1.7;
+                color: #333;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                padding: 2rem;
+            }
+
+            /* Container wrapper for content */
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                z-index: -1;
+            }
+
+            .content-wrapper {
+                max-width: 900px;
+                margin: 0 auto;
+                background: white;
+                padding: 3rem;
+                border-radius: 12px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Typography improvements */
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: #2d3748;
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+                border-bottom: 3px solid #667eea;
+                animation: fadeInDown 0.5s ease-out;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                font-weight: 600;
+                color: #4a5568;
+                margin-top: 2.5rem;
+                margin-bottom: 1.2rem;
+                padding-left: 1rem;
+                border-left: 4px solid #764ba2;
+                animation: fadeInLeft 0.6s ease-out;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: #4a5568;
+                margin-top: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                margin-bottom: 1.2rem;
+                color: #4a5568;
+                animation: fadeIn 0.7s ease-out;
+            }
+
+            ul {
+                margin-left: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            ul li {
+                margin-bottom: 0.5rem;
+                color: #4a5568;
+                position: relative;
+                padding-left: 0.5rem;
+            }
+
+            ul li::marker {
+                color: #667eea;
+            }
+
+            strong {
+                color: #2d3748;
+                font-weight: 600;
+            }
+
+            hr {
+                border: none;
+                height: 2px;
+                background: linear-gradient(to right, #667eea, #764ba2);
+                margin: 2rem 0;
+            }
+
+            /* Animations */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes fadeInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeInLeft {
+                from {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+.holiday {
+  background-color: #f40606;
+  color: #ffffff;
+}
+
+.pto {
+  background-color: #2e06f4;
+  color: #ffffff;
+}
+
+.event {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #ffffff;
+  font-weight: 600;
+  position: relative;
+}
+
+.event-text {
+  font-size: 10px;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Enhanced table styling */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 4px;
+    margin: 1.5rem 0;
+    background: #f7fafc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+table thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+table thead tr th {
+    padding: 15px 10px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+table tbody tr td {
+    padding: 12px 10px;
+    text-align: center;
+    background: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+table tbody tr td:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+/* Calendar day styling */
+table tbody tr td strong {
+    display: block;
+    padding: 8px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Event cells in calendar */
+table tbody tr td.event {
+    padding: 8px 5px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+table tbody tr td strong:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(72, 187, 120, 0.4);
+}
+
+/* Holiday styling improvements */
+table tbody tr td.holiday {
+    background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+table tbody tr td.pto {
+    background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%);
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+/* Blockquote styling improvements */
+blockquote {
+    background: linear-gradient(to right, #f7fafc 0%, #edf2f7 100%);
+    border-left: 4px solid #667eea;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    animation: fadeIn 0.9s ease-out;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+blockquote li {
+    margin: 0.5rem 0;
+    list-style-position: inside;
+}
+
+blockquote code {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0 4px;
+}
+
+blockquote code.holiday {
+    background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+    color: white;
+}
+
+blockquote code.pto {
+    background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%);
+    color: white;
+}
+
+/* Animation for table fade in */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .content-wrapper {
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        padding-bottom: 0.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        margin-top: 1.8rem;
+        padding-left: 0.8rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    ul {
+        margin-left: 1.2rem;
+    }
+
+    table {
+        font-size: 0.85rem;
+        border-spacing: 2px;
+    }
+
+    table thead tr th {
+        padding: 10px 5px;
+        font-size: 0.8rem;
+    }
+
+    table tbody tr td {
+        padding: 8px 5px;
+    }
+
+    table tbody tr td strong {
+        padding: 5px;
+        font-size: 0.85rem;
+    }
+
+    blockquote {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    .content-wrapper {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        border-left-width: 3px;
+    }
+
+    table {
+        font-size: 0.75rem;
+    }
+
+    table thead tr th {
+        padding: 8px 3px;
+        font-size: 0.7rem;
+        letter-spacing: 0;
+    }
+
+    table tbody tr td {
+        padding: 6px 3px;
+    }
+
+    table tbody tr td strong {
+        padding: 3px;
+        font-size: 0.75rem;
+    }
+
+    table tbody tr td:hover {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .content-wrapper {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    h1, h2 {
+        page-break-after: avoid;
+    }
+
+    table {
+        page-break-inside: avoid;
+    }
+
+    .holiday, .pto {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Selection styling */
+::selection {
+    background: #667eea;
+    color: white;
+}
+
+::-moz-selection {
+    background: #667eea;
+    color: white;
+}
+
+/* Mapbox Map Container */
+#map {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e2e8f0;
+    animation: fadeInUp 0.8s ease-out;
+    position: relative;
+}
+
+.map-section {
+    margin: 2.5rem 0;
+}
+
+.map-section h2 {
+    margin-bottom: 1rem;
+}
+
+/* Map info overlay */
+.map-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: auto;
+    max-width: 90%;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-radius: 6px;
+    padding: 8px 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    animation: slideDown 0.5s ease-out;
+    font-size: 11px;
+    flex-wrap: wrap;
+}
+
+.city-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.city-marker {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 9px;
+}
+
+.tokyo-marker {
+    background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+}
+
+.thailand-marker {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+.taiwan-marker {
+    background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%);
+}
+
+.city-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.city-name {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 11px;
+}
+
+.city-timezone {
+    color: #4a5568;
+    font-size: 10px;
+}
+
+.time-difference {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 10px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.map-info {
+    background: linear-gradient(to right, #f7fafc 0%, #edf2f7 100%);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border-left: 4px solid #667eea;
+}
+
+.map-info p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* Mapbox popup styling */
+.mapboxgl-popup-content {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mapboxgl-popup-content h3 {
+    margin: 0 0 8px 0;
+    color: #2d3748;
+    font-size: 1.1rem;
+}
+
+.mapboxgl-popup-content p {
+    margin: 4px 0;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+/* Responsive map sizing */
+@media screen and (max-width: 768px) {
+    #map {
+        height: 300px;
+    }
+
+    .map-overlay {
+        width: 90%;
+        max-width: 90%;
+        padding: 6px 10px;
+        gap: 8px;
+    }
+
+    .city-info {
+        gap: 4px;
+    }
+
+    .city-name {
+        font-size: 10px;
+    }
+
+    .city-timezone {
+        font-size: 9px;
+    }
+
+    .time-difference {
+        font-size: 9px;
+        padding: 3px 6px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #map {
+        height: 250px;
+    }
+
+    .map-overlay {
+        width: 90%;
+        max-width: 90%;
+    }
+
+    .city-marker {
+        width: 18px;
+        height: 18px;
+        font-size: 8px;
+    }
+}
+
+</style>
+
+        </head>
+        <body class="vscode-body vscode-light">
+            <div class="content-wrapper">
+            <h1 id="remote-work-plan-proposal-kenji-shima">Remote Work Plan (Kenji Shima) - May 2026</h1>
+<h2 id="overview">Overview</h2>
+<p>As my geographical location will not impact my performance as long as I stay in a timezone close to Tokyo, I plan to work remotely from Thailand and Taiwan during May 2026, with scheduled vacation days.</p>
+<h2 id="remote-work-details">Remote Work Details</h2>
+<ul>
+<li><strong>Vacation:</strong> May 7-8, 2026</li>
+<li><strong>Thailand:</strong>
+<ul>
+<li><strong>Dates:</strong> May 11-15, 2026</li>
+<li><strong>Time Zone:</strong> UTC+7 (2 hours behind Tokyo)</li>
+</ul>
+</li>
+<li><strong>Taiwan:</strong>
+<ul>
+<li><strong>Dates:</strong> May 18-22, 2026</li>
+<li><strong>Time Zone:</strong> UTC+8 (1 hour behind Tokyo)</li>
+</ul>
+</li>
+<li><strong>Working Hours:</strong> 9:00 AM – 6:00 PM Japan Standard Time (JST)</li>
+</ul>
+<h2 id="time-zone-considerations">Time Zone Considerations</h2>
+<ul>
+<li><strong>Tokyo (JST):</strong> UTC+9</li>
+<li><strong>Thailand (ICT):</strong> UTC+7</li>
+<li><strong>Taiwan (CST):</strong> UTC+8</li>
+</ul>
+<p>By maintaining my working hours based on JST, I will ensure uninterrupted communication with our Tokyo-based clients and colleagues. This alignment allows for real-time collaboration without significant adjustments to meeting schedules or client interactions.</p>
+<div class="map-section">
+<div id="map">
+    <div class="map-overlay">
+        <div class="city-info">
+            <div class="city-marker tokyo-marker">TYO</div>
+            <div class="city-details">
+                <span class="city-name">Tokyo</span>
+                <span class="city-timezone">UTC+9</span>
+            </div>
+        </div>
+
+        <div class="city-info">
+            <div class="city-marker thailand-marker">BKK</div>
+            <div class="city-details">
+                <span class="city-name">Thailand</span>
+                <span class="city-timezone">UTC+7</span>
+            </div>
+        </div>
+
+        <div class="city-info">
+            <div class="city-marker taiwan-marker">TPE</div>
+            <div class="city-details">
+                <span class="city-name">Taiwan</span>
+                <span class="city-timezone">UTC+8</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<h2 id="communication-plan">Communication Plan</h2>
+<ul>
+<li><strong>Availability:</strong> 9:00 AM – 6:00 PM JST (except vacation days May 7-8)</li>
+<li><strong>Tools:</strong> Slack, Zoom, Email, and other Mapbox communication platforms</li>
+<li><strong>Regular Check-ins:</strong> Weekly stand-ups with Account Managers and syncs with colleagues in Singapore to ensure alignment and address any regional concerns promptly.</li>
+</ul>
+<h2 id="impact-on-apac-client-support">Impact on APAC Client Support</h2>
+<p>Working from Thailand and Taiwan will not hinder my ability to support our clients across the APAC region. My adjusted working hours will accommodate interactions with different time zones, ensuring that client needs are met efficiently.</p>
+<h2 id="calendar-highlighting-remote-work-period">Calendar Highlighting Remote Work Period</h2>
+<p>Below is the calendar for May 2026, highlighting the days I will be on vacation and working remotely:</p>
+<h3 id="may-2026">May 2026</h3>
+<table>
+<thead>
+<tr>
+<th>Sun</th>
+<th>Mon</th>
+<th>Tue</th>
+<th>Wed</th>
+<th>Thu</th>
+<th>Fri</th>
+<th>Sat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td class="holiday">2</td>
+</tr>
+<tr>
+<td class="holiday">3</td>
+<td class="holiday">4</td>
+<td class="holiday">5</td>
+<td class="holiday">6</td>
+<td class="pto">7</td>
+<td class="pto">8</td>
+<td class="holiday">9</td>
+</tr>
+<tr>
+<td class="holiday">10</td>
+<td><strong>11[T]</strong></td>
+<td><strong>12[T]</strong></td>
+<td><strong>13[T]</strong></td>
+<td><strong>14[T]</strong></td>
+<td><strong>15[T]</strong></td>
+<td class="holiday">16</td>
+</tr>
+<tr>
+<td class="holiday">17</td>
+<td><strong>18[TW]</strong></td>
+<td><strong>19[TW]</strong></td>
+<td><strong>20[TW]</strong></td>
+<td><strong>21[TW]</strong></td>
+<td><strong>22[TW]</strong></td>
+<td class="holiday">23</td>
+</tr>
+<tr>
+<td class="holiday">24</td>
+<td>25</td>
+<td>26</td>
+<td>27</td>
+<td>28</td>
+<td>29</td>
+<td class="holiday">30</td>
+</tr>
+<tr>
+<td class="holiday">31</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong>
+  <li>Days marked with <code>[T]</code> indicate remote work from Thailand.</li>
+  <li>Days marked with <code>[TW]</code> indicate remote work from Taiwan.</li>
+  <li>Days colored with <code class="pto">　</code> indicate vacation days (PTO).</li>
+  <li>Days colored with <code class="holiday">　</code> indicate public holidays or weekends.</li>
+  <li><strong>Japanese Public Holidays in May 2026:</strong>
+    <ul>
+      <li>May 3 (Sun): Constitution Memorial Day</li>
+      <li>May 4 (Mon): Greenery Day</li>
+      <li>May 5 (Tue): Children's Day</li>
+      <li>May 6 (Wed): Substitute Holiday (for May 3)</li>
+    </ul>
+  </li>
+  <li><strong>Schedule:</strong>
+    <ul>
+      <li>May 7-8: Vacation</li>
+      <li>May 11-15: Remote work from Thailand</li>
+      <li>May 18-22: Remote work from Taiwan</li>
+    </ul>
+  </li>
+</p>
+</blockquote>
+<h2 id="justification">Justification</h2>
+<ul>
+<li><strong>Enhanced Focus:</strong> A change in environment can boost creativity and productivity.</li>
+<li><strong>Regional Engagement:</strong> Working from different APAC locations provides better understanding of regional markets and client needs.</li>
+<li><strong>Timezone Proximity:</strong> Both Thailand (UTC+7) and Taiwan (UTC+8) maintain minimal time difference with Tokyo, enabling seamless collaboration.</li>
+<li><strong>Professional Development:</strong> Exposure to different business environments enhances cross-cultural understanding.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Working remotely from Thailand and Taiwan during May 2026, with planned vacation on May 7-8, will enable me to maintain my performance and support for our clients and team. I am committed to ensuring a seamless transition and will remain fully accessible during my remote work periods.</p>
+<p>I appreciate your consideration of this proposal and am open to discussing any concerns or adjustments to ensure continued success in our projects and client relationships.</p>
+<hr>
+</div>
+
+<script>
+    // Initialize Mapbox
+    // Access token loaded from utils.js
+
+    // Coordinates for Tokyo, Thailand (Bangkok), and Taiwan (Taipei)
+    const tokyoCoords = [139.6503, 35.6762];
+    const thailandCoords = [100.5018, 13.7563];
+    const taiwanCoords = [121.5654, 25.0330];
+
+    // Calculate center point between all three cities
+    const centerLng = (tokyoCoords[0] + thailandCoords[0] + taiwanCoords[0]) / 3;
+    const centerLat = (tokyoCoords[1] + thailandCoords[1] + taiwanCoords[1]) / 3;
+
+    // Create the map with the desired initial view
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [centerLng, centerLat],
+        zoom: 3.5,
+        pitch: 0,
+        bearing: 0,
+        antialias: true
+    });
+
+    // Add navigation controls
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+    // Add fullscreen control
+    map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
+
+    // Create Tokyo marker (red)
+    const tokyoEl = document.createElement('div');
+    tokyoEl.style.width = '50px';
+    tokyoEl.style.height = '50px';
+    tokyoEl.style.borderRadius = '50%';
+    tokyoEl.style.background = 'linear-gradient(135deg, #fc8181 0%, #f56565 100%)';
+    tokyoEl.style.border = '3px solid white';
+    tokyoEl.style.boxShadow = '0 4px 12px rgba(239, 68, 68, 0.5)';
+    tokyoEl.style.cursor = 'pointer';
+    tokyoEl.style.display = 'flex';
+    tokyoEl.style.alignItems = 'center';
+    tokyoEl.style.justifyContent = 'center';
+    tokyoEl.style.color = 'white';
+    tokyoEl.style.fontWeight = 'bold';
+    tokyoEl.style.fontSize = '18px';
+    tokyoEl.innerHTML = 'TYO';
+
+    // Create Thailand marker (green)
+    const thailandEl = document.createElement('div');
+    thailandEl.style.width = '50px';
+    thailandEl.style.height = '50px';
+    thailandEl.style.borderRadius = '50%';
+    thailandEl.style.background = 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)';
+    thailandEl.style.border = '3px solid white';
+    thailandEl.style.boxShadow = '0 4px 12px rgba(72, 187, 120, 0.5)';
+    thailandEl.style.cursor = 'pointer';
+    thailandEl.style.display = 'flex';
+    thailandEl.style.alignItems = 'center';
+    thailandEl.style.justifyContent = 'center';
+    thailandEl.style.color = 'white';
+    thailandEl.style.fontWeight = 'bold';
+    thailandEl.style.fontSize = '18px';
+    thailandEl.innerHTML = 'BKK';
+
+    // Create Taiwan marker (blue)
+    const taiwanEl = document.createElement('div');
+    taiwanEl.style.width = '50px';
+    taiwanEl.style.height = '50px';
+    taiwanEl.style.borderRadius = '50%';
+    taiwanEl.style.background = 'linear-gradient(135deg, #63b3ed 0%, #4299e1 100%)';
+    taiwanEl.style.border = '3px solid white';
+    taiwanEl.style.boxShadow = '0 4px 12px rgba(59, 130, 246, 0.5)';
+    taiwanEl.style.cursor = 'pointer';
+    taiwanEl.style.display = 'flex';
+    taiwanEl.style.alignItems = 'center';
+    taiwanEl.style.justifyContent = 'center';
+    taiwanEl.style.color = 'white';
+    taiwanEl.style.fontWeight = 'bold';
+    taiwanEl.style.fontSize = '18px';
+    taiwanEl.innerHTML = 'TPE';
+
+    // Add markers to map
+    const tokyoMarker = new mapboxgl.Marker(tokyoEl)
+        .setLngLat(tokyoCoords)
+        .addTo(map);
+
+    const thailandMarker = new mapboxgl.Marker(thailandEl)
+        .setLngLat(thailandCoords)
+        .addTo(map);
+
+    const taiwanMarker = new mapboxgl.Marker(taiwanEl)
+        .setLngLat(taiwanCoords)
+        .addTo(map);
+
+
+    // Add 3D buildings layer when map loads
+    map.on('load', () => {
+        // Add connecting lines between Tokyo and destinations
+        map.addSource('route-thailand', {
+            'type': 'geojson',
+            'data': {
+                'type': 'Feature',
+                'properties': {},
+                'geometry': {
+                    'type': 'LineString',
+                    'coordinates': [tokyoCoords, thailandCoords]
+                }
+            }
+        });
+
+        map.addSource('route-taiwan', {
+            'type': 'geojson',
+            'data': {
+                'type': 'Feature',
+                'properties': {},
+                'geometry': {
+                    'type': 'LineString',
+                    'coordinates': [tokyoCoords, taiwanCoords]
+                }
+            }
+        });
+
+        // Add the line layers
+        map.addLayer({
+            'id': 'route-thailand',
+            'type': 'line',
+            'source': 'route-thailand',
+            'layout': {
+                'line-join': 'round',
+                'line-cap': 'round'
+            },
+            'paint': {
+                'line-color': '#48bb78',
+                'line-width': 3,
+                'line-opacity': 0.6,
+                'line-dasharray': [2, 2]
+            }
+        });
+
+        map.addLayer({
+            'id': 'route-taiwan',
+            'type': 'line',
+            'source': 'route-taiwan',
+            'layout': {
+                'line-join': 'round',
+                'line-cap': 'round'
+            },
+            'paint': {
+                'line-color': '#4299e1',
+                'line-width': 3,
+                'line-opacity': 0.6,
+                'line-dasharray': [2, 2]
+            }
+        });
+
+        // Insert the layer beneath any symbol layer.
+        const layers = map.getStyle().layers;
+        const labelLayerId = layers.find(
+            (layer) => layer.type === 'symbol' && layer.layout['text-field']
+        ).id;
+
+        // Add 3D buildings
+        map.addLayer(
+            {
+                'id': '3d-buildings',
+                'source': 'composite',
+                'source-layer': 'building',
+                'filter': ['==', 'extrude', 'true'],
+                'type': 'fill-extrusion',
+                'minzoom': 15,
+                'paint': {
+                    'fill-extrusion-color': '#aaa',
+                    'fill-extrusion-height': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        15,
+                        0,
+                        15.05,
+                        ['get', 'height']
+                    ],
+                    'fill-extrusion-base': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        15,
+                        0,
+                        15.05,
+                        ['get', 'min_height']
+                    ],
+                    'fill-extrusion-opacity': 0.6
+                }
+            },
+            labelLayerId
+        );
+
+        // Add some atmospheric fog for better 3D effect
+        map.setFog({
+            'range': [-1, 2],
+            'color': 'white',
+            'horizon-blend': 0.3
+        });
+    });
+
+
+    // Double click to view all cities
+    map.on('dblclick', (e) => {
+        e.preventDefault();
+
+        // Calculate center point between all three cities
+        const centerLng = (tokyoCoords[0] + thailandCoords[0] + taiwanCoords[0]) / 3;
+        const centerLat = (tokyoCoords[1] + thailandCoords[1] + taiwanCoords[1]) / 3;
+
+        // Fly to view showing all cities with regional context
+        map.flyTo({
+            center: [centerLng, centerLat],
+            zoom: 3.5,
+            pitch: 0,
+            bearing: 0,
+            duration: 2000,
+            essential: true
+        });
+    });
+
+    // Add animation to pulse the connection lines
+    let step = 0;
+    function animateLine() {
+        step = (step + 1) % 100;
+        const dashArraySequence = [
+            [0, 4, 3],
+            [1, 4, 2],
+            [2, 4, 1],
+            [3, 4, 0],
+            [4, 3, 0],
+            [4, 2, 1],
+            [4, 1, 2],
+            [4, 0, 3]
+        ];
+        const dashArrayIndex = Math.floor((step / 100) * dashArraySequence.length);
+        if (map.getLayer('route-thailand')) {
+            map.setPaintProperty('route-thailand', 'line-dasharray', dashArraySequence[dashArrayIndex]);
+        }
+        if (map.getLayer('route-taiwan')) {
+            map.setPaintProperty('route-taiwan', 'line-dasharray', dashArraySequence[dashArrayIndex]);
+        }
+        requestAnimationFrame(animateLine);
+    }
+    animateLine();
+</script>
+
+</body>
+</html>
